@@ -19,9 +19,9 @@ const Title = styled.span`
     padding-left: 5px;
 `
 
-const ImageCard = ({ photo }) => (
+const ImageCard = ({ photo, title }) => (
     <Card photo={photo}>
-        <Title>Nome do restaurante</Title>
+        <Title>{ title }</Title>
     </Card>
 )
 

@@ -40,10 +40,32 @@ export const CarouselTitle = styled.h2`
 export const Carousel = styled(Slider)`
     .slick-slide{
         margin: 0 5px;
-        
+        cursor: pointer;
     }
 
     .slick-next{
         right: 0;
     }
+`
+export const TitleRestaurant = styled.p`
+    font-size: 24px;
+    font-family: ${(props) => props.theme.fonts.fontFamily};
+    color: #343a40;
+    font-weight: 700;
+    margin-bottom: 10px;
+`
+
+export const PhoneRestaurant = styled.span`
+    font-family: ${(props) => props.theme.fonts.fontFamily};
+    color: #343a40;
+    margin-bottom: 10px;
+
+`
+
+export const AddressRestaurant = styled.span`
+    font-size: 16px;
+    font-family: ${(props) => props.theme.fonts.fontFamily};
+    color:#6c757d;
+    font-weight: 600;
+
 `

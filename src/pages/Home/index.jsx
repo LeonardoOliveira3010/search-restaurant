@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {useSelector} from 'react-redux'
 // import Slider from "react-slick";
 
-import { Container, Search, Wrapper, CarouselTitle, Carousel } from "./style";
+import { Container, Search, Wrapper, CarouselTitle, Carousel, PhoneRestaurant, TitleRestaurant, AddressRestaurant } from "./style";
 
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -13,7 +13,7 @@ import restaurante from '../../assets/restaurante-fake.jpg'
 import { Card, RestaurantCard, Modal, Map } from "../../components";
 
 
-export const Home = () =>{
+export const Home = ({ restaurant }) =>{
     const [inputValue, setInputValue] = useState('')
     const [query, setQuery] = useState(null)
     const [placeId, setPlaceId] = useState(null)
@@ -78,9 +78,10 @@ export const Home = () =>{
                 </Container>
                 <Map query={query} placeId={placeId} />
                 <Modal open={modalOpen} onClose={() => setModalOpen(!modalOpen)}> 
-                    <p>{restaurantSelected?.name}</p>
-                    <p>{restaurantSelected?.formatted_phone_number}</p>
-                    <p>{restaurantSelected?.formatted_address}</p>
+                    <TitleRestaurant>{restaurantSelected?.name}</TitleRestaurant>
+                    <PhoneRestaurant>{restaurantSelected?.formatted_phone_number}</PhoneRestaurant>
+                    <AddressRestaurant>{restaurantSelected?.formatted_address}</AddressRestaurant>
+                    
                 </Modal>
             </Wrapper> 
         </>

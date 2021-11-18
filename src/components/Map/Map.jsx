@@ -33,7 +33,7 @@ export const MapContainer = (props) =>{
         }
 
         service.getDetails(request, (place, status) => {
-            if( status === google.map.places.PlacesServiceStatus.OK){
+            if( status === google.maps.places.PlacesServiceStatus.OK){
                 dispatch(setRestaurant(place))
             }
         })
@@ -50,8 +50,10 @@ export const MapContainer = (props) =>{
         }
 
         service.textSearch(request, (results, status) => {
-            if( status === google.map.places.PlacesServiceStatus.OK){
+            if( status === google.maps.places.PlacesServiceStatus.OK){
                 dispatch(setRestaurants(results))
+            }else if(status !== google.maps.places.PlacesServiceStatus){
+                alert('digite um local valido')
             }
         })
     }
@@ -92,7 +94,9 @@ export const MapContainer = (props) =>{
     )
 }
 
+console.log(GoogleApiWrapper)
+
 export default GoogleApiWrapper({
-    apiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+    apiKey: 'AIzaSyCuVcWcQrymOkKBfKIKQNUlOsJWn41jSpM',
     language: 'pt-BR'
 })(MapContainer)
